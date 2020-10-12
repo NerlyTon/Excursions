@@ -39,4 +39,5 @@ class ExcursionsController < ApplicationController
 
     def excursion_params
         params.require(:excursion).permit(:company, :location, :price, :included, :what_to_bring, :description)
+    end
 end
