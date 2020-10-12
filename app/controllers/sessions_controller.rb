@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete 
+    session.clear
     redirect_to welcome_path
   end
 end
