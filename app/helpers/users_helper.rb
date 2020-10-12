@@ -12,8 +12,8 @@ module UsersHelper
         redirect_to '/' if !logged_in?
     end
 
-    def admin?
-        current_user.try(:admin?)
+    def business?
+        current_user.try(:business?)
     end
-    
+
 end
