@@ -1,0 +1,1 @@
+rails g model user name email username password_digest --no-test-framework
