@@ -1,1 +1,3 @@
 rails g model user name email username password_digest --no-test-framework
+rails g model excursion company location price:integer included what_to_bring description:text --no-test-framework
+rails g model booking date:datetime pick_up:time drop_off:time user:belongs_to excursion:belongs_to info --no-test-framework
