@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     end
 
     def new
-        if params[excursion_id]
+        if params[:excursion_id]
             @excursion = Excursion.find_by_id(params[:excursion_id])
             @booking = @excursion.bookings.build
         else
@@ -19,16 +19,16 @@ class BookingsController < ApplicationController
     end
 
     def create
-        if params[excursion_id]
+        if params[:excursion_id]
             @excursion = Excursion.find_by_id(params[:excursion_id])
             @booking = @excursion.bookings.build(booking_params)
         else
             @booking = Booking.new(booking_params)
         end
         if @booking.save
-            redirect_to user_bookings_path
+            redirect_to excursion_booking_path
         else
-            redirect_to new_user_excursion_bookings_path
+            redirect_to excursion_path
         end
     end
 
@@ -53,7 +53,7 @@ class BookingsController < ApplicationController
     private
 
     def booking_params
-        params.require(:booking).permit(:date, :pick_up, :drop_off:, :info, :user_id, :excursion_id)
+        params.require(:booking).permit(:date, :pick_up, :drop_off, :info, :user_id, :excursion_id)
     end
 
 end

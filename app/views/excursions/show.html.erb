@@ -4,12 +4,12 @@
 $<%=@excursion.price%><br><br>
 <%=@excursion.included%><br><br>
 <%=@excursion.what_to_bring%><br><br>
-<%=@excursion.company%><br>
+<%=@excursion.company%><br><br>
 
 <% if business? %>
     <%= button_to "Edit", edit_excursion_path, method: :get%>
     <% else %>
-    <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), method: :get%> 
+    <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), :method => "get"%> 
     <% end %>
 
 

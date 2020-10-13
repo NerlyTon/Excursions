@@ -1,11 +1,12 @@
-<h1>New Booking</h1>
+<h1>New Booking for <%= @booking.excursion.title%></h1>
 <%= form_for @booking do |f|%>
   <%= f.label :date%><br>
-  <%= f.text_field :date%><br>
+  <%= f.date_select :date%><br>
   <%= f.label :pick_up%><br>
-  <%= f.text_field :pick_up%><br>
+  <%= f.time_select :pick_up%><br>
   <%= f.label :drop_off%><br>
-  <%= f.text_field :drop_off><br>
+  <%= f.time_select :drop_off%><br>
   <%= f.label :info%><br>
-  <%= f.number_field :info%><br>
+  <%= f.text_field :info%><br>
   <%= f.submit %>
+  <% end %>
