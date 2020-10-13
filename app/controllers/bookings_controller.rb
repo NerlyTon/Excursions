@@ -1,19 +1,34 @@
 class BookingsController < ApplicationController
 
     def index
-        @bookings = Booking.all
+        if params[:excursion_id]
+            @excursion = excursion.find_by_id(params[:excursion_id])
+            @bookings = @excursion.bookings
+        else
+            @bookings = Booking.all
+        end
     end
 
     def new
-        @booking = Booking.new
+        if params[excursion_id]
+            @excursion = Excursion.find_by_id(params[:excursion_id])
+            @booking = @excursion.bookings.build
+        else
+            @booking = Booking.new
+        end
     end
 
     def create
-        @booking = Booking.new(booking_params)
-        if @booking.save
-            redirect_to booking_path(@booking)
+        if params[excursion_id]
+            @excursion = Excursion.find_by_id(params[:excursion_id])
+            @booking = @excursion.bookings.build(booking_params)
         else
-            redirect_to new_booking_path
+            @booking = Booking.new(booking_params)
+        end
+        if @booking.save
+            redirect_to user_bookings_path
+        else
+            redirect_to new_user_excursion_bookings_path
         end
     end
 
