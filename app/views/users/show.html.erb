@@ -1,2 +1,6 @@
 <h1>Welcome <%=@user.name%></h1>
+<% if business? %>
+    <h4>ADMIN</h4> 
+    <% else %>
 <h4>Here are your bookings</h4>
+<% end %>

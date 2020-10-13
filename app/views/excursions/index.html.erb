@@ -1,3 +1,4 @@
+<h1>All Excursions</h1>
 <% @excursions.each do |excursion| %>
-    <%= link_to excursion.location, excursion_path(excursion) %>
+    <%= link_to excursion.title, excursion_path(excursion) %> in <%=excursion.location%>
     <% end %>

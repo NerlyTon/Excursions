@@ -13,7 +13,11 @@ module UsersHelper
     end
 
     def business?
-        current_user.try(:business?)
+        current_user.try(:business?) == true
+    end
+
+    def redirect_if_not_business
+        redirect_to excursions_path if current_user.try(:business?) == false
     end
 
 end

@@ -1,4 +1,6 @@
 class ExcursionsController < ApplicationController
+    before_action :redirect_if_not_business
+    skip_before_action :redirect_if_not_business, only: [:index]
     
     def index
         @excursions = Excursion.all
@@ -9,16 +11,11 @@ class ExcursionsController < ApplicationController
     end
 
     def create
-        if current_user && business?
         @excursion = Excursion.new(excursion_params)
-            if @excursion.save
-                redirect_to excursion_path(@excursion)
-            else
-                redirect_to new_excursion_path
-            end
+        if @excursion.save
+            redirect_to excursion_path(@excursion)
         else
-            redirect_to excursions_path
-        
+            redirect_to new_excursion_path
         end
     end
 
