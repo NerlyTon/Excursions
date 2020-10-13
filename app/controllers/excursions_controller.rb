@@ -9,11 +9,16 @@ class ExcursionsController < ApplicationController
     end
 
     def create
+        if current_user && business?
         @excursion = Excursion.new(excursion_params)
-        if @excursion.save
-            redirect_to excursion_path(@excursion)
+            if @excursion.save
+                redirect_to excursion_path(@excursion)
+            else
+                redirect_to new_excursion_path
+            end
         else
-            redirect_to new_excursion_path
+            redirect_to excursions_path
+        
         end
     end
 
