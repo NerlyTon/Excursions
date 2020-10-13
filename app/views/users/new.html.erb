@@ -2,18 +2,10 @@
 <%= form_for @user do |f|%>
   <%= f.label "Are you a Business?"%><br>
   <%= f.check_box :business%><br>
-  <% if business? %>
-  <%= f.label "Business Name"%><br>
-  <%= f.text_field :name%><br>
-  <%= f.label :email%><br>
-  <%= f.text_field :email%><br>
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br><br>
-  <% else %>
   <%= f.label :name%><br>
-  <%= f.text_field :name%><br>
+  <%= f.text_field :name, required:true%><br>
   <%= f.label :email%><br>
-  <%= f.text_field :email%><br>
+  <%= f.text_field :email, required:true%><br>
   <%= f.label :password%><br>
   <%= f.password_field :password%><br><br>
   <% end%>

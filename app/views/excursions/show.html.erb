@@ -7,9 +7,9 @@ $<%=@excursion.price%><br><br>
 <%=@excursion.company%><br>
 
 <% if business? %>
-    <%= button_to "Edit", 'edit_excursion_path', method: :get%>
+    <%= button_to "Edit", edit_excursion_path, method: :get%>
     <% else %>
-    <%= button_to "Book Excursion", 'new_excursion_booking_path', method: :get%> 
+    <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), method: :get%> 
     <% end %>
 
 
