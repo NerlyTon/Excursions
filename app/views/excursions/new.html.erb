@@ -1,17 +1,22 @@
 <h1>New Excursion</h1>
 <%= form_for @excursion do |f|%>
+  <%= f.label :title%><br>
+  <%= f.text_field :title%><br>
   <%= f.label :company%><br>
   <%= f.text_field :company%><br>
   <%= f.label :location%><br>
   <%= f.text_field :location%><br>
   <%= f.label :price%><br>
-  <%= f.text_field :price%><br>
+  <%= f.number_field :price%><br>
   <%= f.label :included%><br>
-  <%= f.text_field :included%><br><br>
+  <%= f.text_area :included%><br>
   <%= f.label :what_to_bring%><br>
-  <%= f.text_field :what_to_bring%><br>
+  <%= f.text_area :what_to_bring%><br>
   <%= f.label :description%><br>
-  <%= f.text_field :description%><br>
+  <%= f.text_area :description%><br>
+  <%= f.label :image_url%><br>
+  <%= f.text_field :image_url%><br><br>
+
   <%= f.submit %>
  
 <%end%>
