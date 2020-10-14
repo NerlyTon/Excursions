@@ -15,7 +15,13 @@
   <%= f.label :description%><br>
   <%= f.text_area :description%><br>
   <%= f.label :image_url%><br>
-  <%= f.text_field :image_url%><br><br>
+  <%= f.text_field :image_url%><br>
+  <%= f.label :pick_up%><br>
+  <%= f.time_select :pick_up%><br>
+  <%= f.label :drop_off%><br>
+  <%= f.time_select :drop_off%><br>
+  <%= f.label :veh_num%><br>
+  <%= f.text_field :veh_num%><br><br>
 
   <%= f.submit %>
  
