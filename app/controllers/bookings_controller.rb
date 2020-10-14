@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
+    before_action :redirect_if_not_current_user_or_logged_in
 
     def index
-        if params[:excursion_id]
-            @excursion = excursion.find_by_id(params[:excursion_id])
-            @bookings = @excursion.bookings
+        if current_user && logged_in?
+            @bookings = current_user.bookings
+            # byebug
         else
+            # flash[:error] = "Sorry you have no bookings yet"
             redirect_to excursions_path
         end
     end
@@ -47,21 +49,30 @@ class BookingsController < ApplicationController
         # if params[:excursion_id]
         @excursion = Excursion.find_by_id(params[:excursion_id])
         @booking = Booking.find(params[:id])
-        @excursion.bookings
+        
     end
 
     def edit
         @booking = Booking.find(params[:id])
+        @excursion = Excursion.find_by_id(params[:excursion_id])
+
     end
 
     def update
         @booking = Booking.find_by(id: params[:id])
+        @excursion = Excursion.find_by_id(params[:excursion_id])
         @booking.update(booking_params)
-        redirect_to booking_path(@booking)
+        redirect_to excursion_booking_path(@excursion, @booking)
     end
 
     def destroy
-        
+        @booking = Booking.find(params[:id])
+        if @booking.destroy
+            redirect_to bookings_path
+        else
+            flash[:notice] = "Was unable to delete booking"
+            redirect_to @booking
+        end
     end
 
     private

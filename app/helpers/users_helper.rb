@@ -20,4 +20,8 @@ module UsersHelper
         redirect_to excursions_path if current_user.try(:business?) == false
     end
 
+    def redirect_if_not_current_user_or_logged_in
+        redirect_to excursions_path if !current_user && !logged_in?
+    end
+
 end

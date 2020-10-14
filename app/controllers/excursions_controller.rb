@@ -5,7 +5,7 @@ class ExcursionsController < ApplicationController
     def index
         if params[:user_id]
             @user = User.find_by_id(params[:user_id])
-            @excursions = @user.excursions
+            @excursions = current_user.excursions
         else
             @excursions = Excursion.all
         end
@@ -39,7 +39,13 @@ class ExcursionsController < ApplicationController
     end
 
     def destroy
-        
+        @excursion = Excursion.find(params[:id])
+        if @excursion.destroy
+            redirect_to excursions_path
+        else
+            flash[:notice] = "Was unable to delete excursion"
+            redirect_to @excursion
+        end
     end
 
     private

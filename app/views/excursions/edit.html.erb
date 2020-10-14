@@ -15,8 +15,15 @@
   <%= f.label :description%><br>
   <%= f.text_area :description%><br>
   <%= f.label :image_url%><br>
-  <%= f.text_field :image_url%><br><br>
+  <%= f.text_field :image_url%><br>
+  <%= f.label :pick_up%><br>
+  <%= f.time_select :pick_up%><br>
+  <%= f.label :drop_off%><br>
+  <%= f.time_select :drop_off%><br>
+  <%= f.label :veh_info%><br>
+  <%= f.text_field :veh_info%><br><br>
 
   <%= f.submit %>
  
 <%end%>
+<%= link_to "Go back to Excursion", excursion_path(@excursion)%>

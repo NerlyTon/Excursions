@@ -1,5 +1,13 @@
 <h1><%=@booking.user.name%> - <%=@booking.excursion.title%></h1>
+<img src=<%= @booking.excursion.image_url%>><br>
 <%= @booking.date %><br>
-<%= @booking.pick_up %><br>
-<%= @booking.drop_off%><br>
+<%=link_to @booking.excursion.title, excursion_path(@excursion) %> 
 <%= @booking.excursion.description %>
+<%= @booking.excursion.pick_up%>
+<%= @booking.excursion.drop_off%>
+<%= @booking.excursion.veh_info%>
+<h3>Dont forget to bring! </h3>
+<%= @booking.excursion.what_to_bring %><br><br>
+
+<button><%= button_to "Edit", edit_excursion_booking_path, method: :get%></button>
+<button><%= button_to "Delete", @booking, method: :delete, data: {confirm: "Are you sure you want to delete this booking?"}%></button>

@@ -1,15 +1,21 @@
 <h1><%=@excursion.title%></h1>
+<img src=<%= @excursion.image_url%>><br>
 <%=@excursion.location%><br><br>
 <%=@excursion.description%><br><br>
 $<%=@excursion.price%><br><br>
 <%=@excursion.included%><br><br>
 <%=@excursion.what_to_bring%><br><br>
 <%=@excursion.company%><br><br>
+<%=@excursion.pick_up%><br><br>
+<%=@excursion.drop_off%><br><br>
+<%=@excursion.veh_info%><br><br>
+
 
 <% if business? %>
-    <%= button_to "Edit", edit_excursion_path, method: :get%>
+    <button><%= button_to "Edit", edit_excursion_path, method: :get%></button>
+    <button><%= button_to "Delete", @excursion, method: :delete, data: {confirm: "Are you sure you want to delete #{@excursion.title}"}%></button>
     <% else %>
     <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), :method => "get"%> 
     <% end %>
 
-
+ 
