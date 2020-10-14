@@ -5,35 +5,49 @@ class BookingsController < ApplicationController
             @excursion = excursion.find_by_id(params[:excursion_id])
             @bookings = @excursion.bookings
         else
-            @bookings = Booking.all
+            redirect_to excursions_path
         end
     end
 
     def new
         if params[:excursion_id]
+            
             @excursion = Excursion.find_by_id(params[:excursion_id])
+            #  byebug
             @booking = @excursion.bookings.build
+            
+
         else
             @booking = Booking.new
         end
     end
 
     def create
+        # byebug
         if params[:excursion_id]
             @excursion = Excursion.find_by_id(params[:excursion_id])
             @booking = @excursion.bookings.build(booking_params)
-        else
+            # byebug
+        else   
             @booking = Booking.new(booking_params)
-        end
+            # byebug
+        end 
+
         if @booking.save
-            redirect_to excursion_booking_path
+            
+                redirect_to excursion_booking_path(@excursion, @booking)
         else
-            redirect_to excursion_path
+           redirect_to excursion_path(@excursion)
         end
     end
+        
 
-    def show 
+
+    def show
+        # if params[:excursion_id]
+        @excursion = Excursion.find_by_id(params[:excursion_id])
         @booking = Booking.find(params[:id])
+        @excursion.bookings
     end
 
     def edit

@@ -4,3 +4,5 @@ rails g model booking date:datetime pick_up:time drop_off:time user:belongs_to e
 rails g controller bookings --no-test-framework
 rails g controller excursions --no-test-framework
 rails g migration add_image_url_to_excursions image_url:string --no-test-framework
+
+, url: excursion_booking_path(@excursion))

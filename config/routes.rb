@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   delete 'logout', to: 'sessions#destroy'
-  resources :users, :excursions do
+  resources :excursions do
       resources :bookings
   end
 
-  
+  resources :users 
   resources :bookings
 
 
