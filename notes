@@ -4,5 +4,11 @@ rails g model booking date:datetime pick_up:time drop_off:time user:belongs_to e
 rails g controller bookings --no-test-framework
 rails g controller excursions --no-test-framework
 rails g migration add_image_url_to_excursions image_url:string --no-test-framework
+rails g migration remove_pick_up_from_bookings pick_up:time --no-test-framework
+rails g migration remove_drop_off_from_bookings drop_off:time --no-test-framework
+rails g migration remove_info_from_bookings info:string --no-test-framework
 
-, url: excursion_booking_path(@excursion))
+rails g migration add_more_to_excursions pick_up:time drop_off:time veh_num:integer --no-test-framework
+
+
+rails g migration remove_last_novel_written_from_authors last_novel_written:string --no-test-framework
