@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_003746) do
     t.string "title"
     t.time "pick_up"
     t.time "drop_off"
-    t.integer "veh_num"
+    t.string "veh_info"
   end
 
   create_table "users", force: :cascade do |t|
