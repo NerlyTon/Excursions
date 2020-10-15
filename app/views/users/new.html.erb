@@ -1,4 +1,5 @@
 <h1>Sign Up</h1>
+<%= render partial: '/errors', locals: { record: @user } %>
 <%= form_for @user do |f|%>
   <%= f.label "Are you a Business?"%><br>
   <%= f.check_box :business%><br>

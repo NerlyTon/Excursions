@@ -70,7 +70,7 @@ class BookingsController < ApplicationController
         if @booking.destroy
             redirect_to bookings_path
         else
-            flash[:notice] = "Was unable to delete booking"
+            flash[:message] = "Was unable to delete booking"
             redirect_to @booking
         end
     end
