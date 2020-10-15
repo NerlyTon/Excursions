@@ -8,5 +8,11 @@ class Excursion < ApplicationRecord
     # def self.all_inclusive_list
     #     where(:all_inclusive => true)
     # end
+
+    def prices
+        Excursion.all.each do |excursion|
+            excursion.price 
+        end
+    end
     
 end

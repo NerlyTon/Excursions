@@ -50,7 +50,7 @@ class ExcursionsController < ApplicationController
         if @excursion.destroy
             redirect_to excursions_path
         else
-            flash[:notice] = "Was unable to delete excursion"
+            flash[:message] = "Was unable to delete excursion"
             redirect_to @excursion
         end
     end

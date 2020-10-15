@@ -22,15 +22,18 @@ class SessionsController < ApplicationController
   end
 
   def google
+    # byebug
     @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
       user.name= auth["info"]["first_name"]
       user.password= SecureRandom.hex(8)
     end
-    if @user.save
+    # byebug
+    if @user && @user.id
+      # byebug
       session[:user_id] = @user.id
-      redirect_to excursions_path
+      redirect_to bookings_path
     else
-      redirect_to welcome_path
+      redirect_to '/'
     end
   end
 
