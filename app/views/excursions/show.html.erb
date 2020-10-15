@@ -12,11 +12,14 @@ $<%=@excursion.price%><br><br>
 All Inclusive: <%=@excursion.all_inclusive%><br><br>
 
 
-<% if business? %>
+<% if logged_in? && business? %>
     <button><%= button_to "Edit", edit_excursion_path, method: :get%></button>
     <button><%= button_to "Delete", @excursion, method: :delete, data: {confirm: "Are you sure you want to delete #{@excursion.title}"}%></button>
+    <% elsif logged_in? && current_user %>
+    <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), :method => "get"%>
     <% else %>
-    <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), :method => "get"%> 
+    <h5>Please Log In or Sign Up to Book!</h5>
+    <%=link_to "Back to Excursions List", excursions_path %>
     <% end %>
 
  

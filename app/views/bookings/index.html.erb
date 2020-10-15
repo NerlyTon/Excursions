@@ -1,5 +1,5 @@
 <%@bookings.each do |booking|%>
     <h3><%=link_to booking.excursion.title, excursion_booking_path(booking.excursion_id, booking.id)%></h3>
-    <%=booking.date%><br><br>
+    Booked Date:<%=booking.date.strftime("%m-%d-%Y")%><br><br>
 <% end %>
        

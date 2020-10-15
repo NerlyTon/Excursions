@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  get '/', to: 'sessions#welcome'
+  get '/', to: 'excursions#index'
   delete 'logout', to: 'sessions#destroy'
   get '/auth/:google_oauth2/callback' => 'sessions#google'
   get '/all_inclusive', to: 'excursions#all_inclusive'

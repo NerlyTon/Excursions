@@ -1,8 +1,10 @@
-<%= link_to "All Inclusive Excursions", all_inclusive_path %><br>
-
 <h1>All Excursions</h1>
-
+<%= link_to "All Inclusive Excursions", all_inclusive_path %><br><br><br>
 <% @excursions.each do |excursion| %>
     <%= link_to excursion.title, excursion_path(excursion) %> in <%=excursion.location%><br>
     <img src=<%=excursion.image_url%>><br><br><br><br>
-    <% end %>
+    <% end %><br><br>
+
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>
+<%= link_to "<button>Log In With Google</button>".html_safe, '/auth/google_oauth2'%>

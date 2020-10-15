@@ -1,7 +1,7 @@
-<h1><%=@booking.user.name%> - <%=@booking.excursion.title%></h1>
+<h1><%=@booking.user.name%> you booked an adventure to <%=@booking.excursion.title%></h1>
 <img src=<%= @booking.excursion.image_url%>><br>
-<%= @booking.date %><br>
-<%=link_to @booking.excursion.title, excursion_path(@excursion) %> 
+Your Excursion is booked for:<%= @booking.date.strftime("%m-%d-%Y") %><br><br>
+<%=link_to @booking.excursion.title, excursion_path(@excursion) %><br>
 <%= @booking.excursion.description %>
 <%= @booking.excursion.pick_up%>
 <%= @booking.excursion.drop_off%>
