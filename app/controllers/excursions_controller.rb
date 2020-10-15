@@ -1,6 +1,7 @@
 class ExcursionsController < ApplicationController
     before_action :redirect_if_not_business
-    skip_before_action :redirect_if_not_business, only: [:index, :show]
+    skip_before_action :redirect_if_not_business, only: [:index, :show, :search, :results]
+    
     
     def index
         if params[:user_id]
@@ -38,6 +39,7 @@ class ExcursionsController < ApplicationController
         redirect_to excursion_path(@excursion)
     end
 
+
     def destroy
         @excursion = Excursion.find(params[:id])
         if @excursion.destroy
@@ -51,6 +53,6 @@ class ExcursionsController < ApplicationController
     private
 
     def excursion_params
-        params.require(:excursion).permit(:company, :location, :price, :included, :what_to_bring, :description, :image_url, :title, :drop_off, :veh_info, :pick_up)
+        params.require(:excursion).permit(:company, :location, :price, :included, :what_to_bring, :description, :image_url, :title, :drop_off, :veh_info, :pick_up, :all_inclusive)
     end
 end

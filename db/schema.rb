@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_003746) do
+ActiveRecord::Schema.define(version: 2020_10_14_225150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_003746) do
     t.time "pick_up"
     t.time "drop_off"
     t.string "veh_info"
+    t.boolean "all_inclusive", default: false
   end
 
   create_table "users", force: :cascade do |t|

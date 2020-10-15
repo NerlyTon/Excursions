@@ -3,7 +3,7 @@ rails g model excursion company location price:integer included what_to_bring de
 rails g model booking date:datetime pick_up:time drop_off:time user:belongs_to excursion:belongs_to info --no-test-framework
 rails g controller bookings --no-test-framework
 rails g controller excursions --no-test-framework
-rails g migration add_image_url_to_excursions image_url:string --no-test-framework
+rails g migration add_all_inclusive_to_excursions all_inclusive:boolean --no-test-framework
 rails g migration remove_pick_up_from_bookings pick_up:time --no-test-framework
 rails g migration remove_drop_off_from_bookings drop_off:time --no-test-framework
 rails g migration remove_info_from_bookings info:string --no-test-framework
