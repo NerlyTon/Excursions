@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        redirect_to excursions_path
+        redirect_to root_path
       else
         flash[:message] = "Wrong email/password. Please try again."
         redirect_to login_path
@@ -31,9 +31,9 @@ class SessionsController < ApplicationController
     if @user && @user.id
       # byebug
       session[:user_id] = @user.id
-      redirect_to bookings_path
+      redirect_to root_path
     else
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 

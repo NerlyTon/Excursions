@@ -1,6 +1,6 @@
 class ExcursionsController < ApplicationController
     before_action :redirect_if_not_business
-    skip_before_action :redirect_if_not_business, only: [:index, :show, :search, :results]
+    skip_before_action :redirect_if_not_business, only: [:index, :show, :search, :results, :all_inclusive]
     
     
     def index
@@ -48,7 +48,7 @@ class ExcursionsController < ApplicationController
     def destroy
         @excursion = Excursion.find(params[:id])
         if @excursion.destroy
-            redirect_to excursions_path
+            redirect_to root_path
         else
             flash[:message] = "Was unable to delete excursion"
             redirect_to @excursion

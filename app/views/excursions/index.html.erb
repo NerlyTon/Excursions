@@ -1,7 +1,8 @@
-<h1>All Excursions</h1>
+<h1>Excursions</h1>
 <%= link_to "All Inclusive Excursions", all_inclusive_path %><br><br><br>
 <% @excursions.each do |excursion| %>
     <%= link_to excursion.title, excursion_path(excursion) %> in <%=excursion.location%><br>
     <img src=<%=excursion.image_url%>><br><br><br><br>
     <% end %><br><br>
+
 

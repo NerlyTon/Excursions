@@ -9,13 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <% if logged_in? && business?%>
+    <h4>Welcome <%= current_user.name %>!</h4>
     <%= link_to "Log Out", logout_path, method: :delete %> |
     <%= link_to "Add New Excursion", new_excursion_path%> |
-    <%= link_to "Excursions List", excursions_path%> |
+    <%= link_to "Excursions List", root_path%> |
     <%= link_to "#{current_user.name} Excursions List", excursions_path%> |
     <% elsif logged_in? %>
+    <h4>Welcome <%= current_user.name %>!</h4>
     <%= link_to "Log Out", logout_path, method: :delete %> |
-    <%= link_to "Excursions List", excursions_path%> |
+    <%= link_to "Excursions List", root_path%> |
     <%= link_to "Your Bookings List", bookings_path%> |
     <% else %>
     <h4>Log In or Sign Up to begin Booking your next adventure!</h4>
