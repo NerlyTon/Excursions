@@ -29,6 +29,11 @@ class ExcursionsController < ApplicationController
         @excursion = Excursion.find(params[:id])
     end
 
+    def all_inclusive
+        @excursions = Excursion.all_inclusive 
+        render :index
+    end
+
     def edit
         @excursion = Excursion.find(params[:id])
     end

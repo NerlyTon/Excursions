@@ -2,10 +2,11 @@ class Excursion < ApplicationRecord
     has_many :bookings
     has_many :users, through: :bookings
     validates_presence_of :company, :title, :price
+    scope :all_inclusive, -> { where(all_inclusive: true) }
     
 
-# def self.all_inclusive
-#     where("LOWER(title) LIKE ?", "all inclusive")
-# end
+    # def self.all_inclusive_list
+    #     where(:all_inclusive => true)
+    # end
     
 end
