@@ -2,12 +2,13 @@
 <img src=<%= @booking.excursion.image_url%>><br>
 Your Excursion is booked for:<%= @booking.date.strftime("%m-%d-%Y") %><br><br>
 <%=link_to @booking.excursion.title, excursion_path(@excursion) %><br>
-<%= @booking.excursion.description %>
-<%= @booking.excursion.pick_up%>
-<%= @booking.excursion.drop_off%>
-<%= @booking.excursion.veh_info%>
+<%= @booking.excursion.description %><br><br>
+Number of People:<%= @booking.num_of_people %><br><br>
+Pick Up Time:<%= @booking.excursion.pick_up%><br><br>
+Drop Off Time:<%= @booking.excursion.drop_off%><br><br>
+Vehicle Information:<%= @booking.excursion.veh_info%><br><br>
 <h3>Dont forget to bring! </h3>
-<%= @booking.excursion.what_to_bring %><br><br>
+<%= @booking.excursion.what_to_bring %><br><br><br>
 
 <button><%= button_to "Edit", edit_excursion_booking_path, method: :get%></button>
 <button><%= button_to "Delete", @booking, method: :delete, data: {confirm: "Are you sure you want to delete this booking?"}%></button>
