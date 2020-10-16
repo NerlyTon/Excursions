@@ -34,6 +34,11 @@ class ExcursionsController < ApplicationController
         render :index
     end
 
+    def your_excursions
+        @excursions = current_user.excursions
+        render :index
+    end
+
     def edit
         @excursion = Excursion.find(params[:id])
     end

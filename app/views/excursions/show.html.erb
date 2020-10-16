@@ -1,14 +1,14 @@
 <h1><%=@excursion.title%></h1>
 <img src=<%= @excursion.image_url%>><br>
-<%=@excursion.location%><br><br>
-<%=@excursion.description%><br><br>
-$<%=@excursion.price%><br><br>
-<%=@excursion.included%><br><br>
-<%=@excursion.what_to_bring%><br><br>
-<%=@excursion.company%><br><br>
-<%=@excursion.pick_up%><br><br>
-<%=@excursion.drop_off%><br><br>
-<%=@excursion.veh_info%><br><br>
+Location:<%=@excursion.location%><br><br>
+Description:<%=@excursion.description%><br><br>
+Price: $<%=@excursion.price%><br><br>
+What is Included:<%=@excursion.included%><br><br>
+What to Bring:<%=@excursion.what_to_bring%><br><br>
+Company:<%=@excursion.company%><br><br>
+Pick Up Time: <%=@excursion.pick_up.strftime("%I:%M%p")%><br><br>
+Drop Off Time:<%=@excursion.drop_off.strftime("%I:%M%p")%><br><br>
+Vehicle Information: <%=@excursion.veh_info%><br><br>
 All Inclusive: <%=@excursion.all_inclusive%><br><br>
 
 
@@ -19,7 +19,7 @@ All Inclusive: <%=@excursion.all_inclusive%><br><br>
     <%= button_to "Book Excursion", new_excursion_booking_path(@excursion), :method => "get"%>
     <% else %>
     <h5>Please Log In or Sign Up to Book!</h5>
-    <%=link_to "Back to Excursions List", excursions_path %>
+    <%=link_to "Back to Excursions List", root_path %>
     <% end %>
 
  

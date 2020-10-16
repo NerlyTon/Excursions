@@ -1,31 +1,3 @@
 <h1>Edit Excursion</h1>
-<%= form_for @excursion do |f|%>
-  <%= f.label :title%><br>
-  <%= f.text_field :title%><br>
-  <%= f.label :all_inclusive%><br>
-  <%= f.check_box :all_inclusive%><br>
-  <%= f.label :company%><br>
-  <%= f.text_field :company%><br>
-  <%= f.label :location%><br>
-  <%= f.text_field :location%><br>
-  <%= f.label :price%><br>
-  <%= f.number_field :price%><br>
-  <%= f.label :included%><br>
-  <%= f.text_area :included%><br>
-  <%= f.label :what_to_bring%><br>
-  <%= f.text_area :what_to_bring%><br>
-  <%= f.label :description%><br>
-  <%= f.text_area :description%><br>
-  <%= f.label :image_url%><br>
-  <%= f.text_field :image_url%><br>
-  <%= f.label :pick_up%><br>
-  <%= f.time_select :pick_up%><br>
-  <%= f.label :drop_off%><br>
-  <%= f.time_select :drop_off%><br>
-  <%= f.label :veh_info%><br>
-  <%= f.text_field :veh_info%><br><br>
-
-  <%= f.submit %>
- 
-<%end%>
+<%= render partial: 'form'%>
 <%= link_to "Go back to Excursion", excursion_path(@excursion)%>
