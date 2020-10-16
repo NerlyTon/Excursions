@@ -10,12 +10,12 @@ Rails.application.routes.draw do
       resources :bookings
   end
 
-  resources :users 
-  resources :bookings
+  resources :users, only: [:new, :create, :show]
+  resources :bookings, only: [:index]
 
 
 root 'excursions#index'
   
-
+# get '/:'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

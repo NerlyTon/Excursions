@@ -7,21 +7,21 @@ class BookingsController < ApplicationController
             # byebug
         else
             # flash[:error] = "Sorry you have no bookings yet"
-            redirect_to excursions_path
+            redirect_to root_path
         end
     end
 
     def new
-        if params[:excursion_id]
+        # if params[:excursion_id]
             
             @excursion = Excursion.find_by_id(params[:excursion_id])
             #  byebug
             @booking = @excursion.bookings.build
             
 
-        else
-            @booking = Booking.new
-        end
+        # else
+        #     @booking = Booking.new
+        # end
     end
 
     def create
