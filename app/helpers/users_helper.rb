@@ -9,7 +9,7 @@ module UsersHelper
     end
     
     def redirect_if_not_logged_in
-        redirect_to '/' if !logged_in?
+        redirect_to root_path if !logged_in?
     end
 
     def business?
@@ -17,11 +17,11 @@ module UsersHelper
     end
 
     def redirect_if_not_business
-        redirect_to excursions_path if current_user.try(:business?) == false
+        redirect_to root_path if current_user.try(:business?) == false
     end
 
     def redirect_if_not_current_user_or_logged_in
-        redirect_to excursions_path if !current_user && !logged_in?
+        redirect_to root_path if !current_user && !logged_in?
     end
 
 end

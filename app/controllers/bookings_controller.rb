@@ -2,60 +2,34 @@ class BookingsController < ApplicationController
     before_action :redirect_if_not_current_user_or_logged_in
 
     def index
-        if current_user && logged_in?
-            @bookings = current_user.bookings
-            # byebug
-        else
-            # flash[:error] = "Sorry you have no bookings yet"
-            redirect_to root_path
-        end
+        @bookings = current_user.bookings
     end
 
     def new
-        # if params[:excursion_id]
-            
-            @excursion = Excursion.find_by_id(params[:excursion_id])
-            #  byebug
-            @booking = @excursion.bookings.build
-            
-
-        # else
-        #     @booking = Booking.new
-        # end
+        @excursion = Excursion.find_by_id(params[:excursion_id])
+        @booking = @excursion.bookings.build
     end
 
     def create
-        # byebug
-        if params[:excursion_id]
-            @excursion = Excursion.find_by_id(params[:excursion_id])
-            @booking = @excursion.bookings.build(booking_params)
-            # byebug
-        else   
-            @booking = Booking.new(booking_params)
-            # byebug
-        end 
-
+        @excursion = Excursion.find_by_id(params[:excursion_id])
+        @booking = @excursion.bookings.build(booking_params)
+        
         if @booking.save
-            
-                redirect_to excursion_booking_path(@excursion, @booking)
+            redirect_to excursion_booking_path(@excursion, @booking)
         else
            redirect_to excursion_path(@excursion)
         end
     end
         
-
-
     def show
         # if params[:excursion_id]
         @excursion = Excursion.find_by_id(params[:excursion_id])
         @booking = Booking.find(params[:id])
-        
     end
 
     def edit
         @booking = Booking.find(params[:id])
         @excursion = Excursion.find_by_id(params[:excursion_id])
-
     end
 
     def update

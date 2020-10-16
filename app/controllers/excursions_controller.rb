@@ -1,15 +1,10 @@
 class ExcursionsController < ApplicationController
     before_action :redirect_if_not_business
-    skip_before_action :redirect_if_not_business, only: [:index, :show, :search, :results, :all_inclusive]
+    skip_before_action :redirect_if_not_business, only: [:index, :show, :all_inclusive]
     
     
     def index
-        if params[:user_id]
-            @user = User.find_by_id(params[:user_id])
-            @excursions = current_user.excursions
-        else
-            @excursions = Excursion.all
-        end
+        @excursions = Excursion.all
     end
 
     def new
@@ -31,11 +26,6 @@ class ExcursionsController < ApplicationController
 
     def all_inclusive
         @excursions = Excursion.all_inclusive 
-        render :index
-    end
-
-    def your_excursions
-        @excursions = current_user.excursions
         render :index
     end
 

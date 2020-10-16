@@ -13,7 +13,6 @@
     <%= link_to "Log Out", logout_path, method: :delete %> |
     <%= link_to "Add New Excursion", new_excursion_path%> |
     <%= link_to "Excursions List", root_path%> |
-    <%= link_to "#{current_user.name} Excursions List", your_excursions_path%> |
     <% elsif logged_in? %>
     <h4>Welcome <%= current_user.name %>!</h4>
     <%= link_to "Log Out", logout_path, method: :delete %> |
