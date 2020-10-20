@@ -1,4 +1,4 @@
-<%= form_for(@booking, url: excursion_booking_path(@excursion, @booking)) do |f|%>
+<%= form_for [@excursion, @booking] do |f|%>
   
     <%= f.label :date%><br>
     <%= f.date_select :date, order: [:month, :day, :year], start_year: Date.today.year%><br>
@@ -7,3 +7,5 @@
     <%= f.hidden_field :user_id, value: current_user.id%>
     <%= f.submit %>
     <% end %>
+
+   

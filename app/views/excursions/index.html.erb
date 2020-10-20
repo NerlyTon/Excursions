@@ -1,8 +1,23 @@
 <h1>Excursions</h1>
-<%= link_to "All Inclusive Excursions", all_inclusive_path %><br><br><br>
+<h6><%= link_to "All Inclusive Excursions", all_inclusive_path %><br><br><br></h6>
+
+
 <% @excursions.each do |excursion| %>
-    <%= link_to excursion.title, excursion_path(excursion) %> in <%=excursion.location%><br>
-    <img src=<%=excursion.image_url%>><br><br><br><br>
-    <% end %><br><br>
+    <div class="row row-cols-1">
+        <div class="col mb-4">
+            <div class="card">
+            <img src=<%=excursion.image_url%> class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title"><%=link_to excursion.title, excursion_path(excursion)%> in <%=excursion.location%></h5>
+                <p class="card-text"><%=excursion.description%></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %><br><br>
 
-
+<style>
+h1, h6 {
+    text-align :center;
+}
+</style>
