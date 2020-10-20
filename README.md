@@ -2,7 +2,7 @@
 
 Excursions
 
-The user weather is a business or not is able to display or see an excursion and book their next adventure. The user is also able to filter the list by only seeing the all inclusive option. This application also has bootstrap implemented in it.
+The user whether is a business or not is able to display or see an excursion and book their next adventure. The user is also able to filter the list by only seeing the all inclusive option. This application also has bootstrap implemented in it.
 
 Things you may want to cover:
 
