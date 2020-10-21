@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get '/auth/:google_oauth2/callback' => 'sessions#google'
   get '/all_inclusive', to: 'excursions#all_inclusive'
-  get '/your_excursions', to: 'excursions#your_excursions'
   resources :excursions do
       resources :bookings
   end
