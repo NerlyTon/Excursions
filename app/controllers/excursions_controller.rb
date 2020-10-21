@@ -1,6 +1,7 @@
 class ExcursionsController < ApplicationController
-    before_action :redirect_if_not_business
+    before_action :redirect_if_not_business, :redirect_if_not_logged_in
     skip_before_action :redirect_if_not_business, only: [:index, :show, :all_inclusive]
+    skip_before_action :redirect_if_not_logged_in, only: [:index, :show, :all_inclusive]
     
     
     def index
@@ -29,12 +30,6 @@ class ExcursionsController < ApplicationController
         render :index
     end
 
-    def your_excursions
-        @excursions = current_user.excursions
-        # byebug
-        render :index
-    end
-
     def edit
         @excursion = Excursion.find(params[:id])
     end
@@ -44,7 +39,6 @@ class ExcursionsController < ApplicationController
         @excursion.update(excursion_params)
         redirect_to excursion_path(@excursion)
     end
-
 
     def destroy
         @excursion = Excursion.find(params[:id])

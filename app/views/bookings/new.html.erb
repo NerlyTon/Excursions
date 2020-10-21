@@ -1,13 +1,6 @@
 <h1>New Booking for <%= @booking.excursion.title%></h1>
-<%= form_for(@booking, url: excursion_bookings_path(@excursion)) do |f|%>
-  
-  <%= f.label :date%><br>
-  <%= f.date_select :date, order: [:month, :day, :year], start_year: Date.today.year%><br>
-  Number of People:<br><%= f.number_field :num_of_people%>
-  <%= f.hidden_field :excursion_id, value: @excursion.id%>
-  <%= f.hidden_field :user_id, value: current_user.id%><br><br>
-  <%= f.submit %>
-  <% end %>
+
+<%= render partial: 'bform'%>
 
   <%= link_to "Go back to Excursion", excursion_path(@excursion)%>
  
