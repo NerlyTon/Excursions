@@ -1,6 +1,10 @@
 <h1>Excursions</h1>
 <h6><%= link_to "All Inclusive Excursions", all_inclusive_path %><br><br><br></h6>
-
+<%= form_tag("/search", :method => "get") do %>
+    <%= label_tag(:search, "Search:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("search")%>
+    <% end %>
 
 <% @excursions.each do |excursion| %>
     <div class="row row-cols-1">

@@ -14,5 +14,10 @@ class Excursion < ApplicationRecord
             excursion.price 
         end
     end
+
+    def self.search(search)
+        # byebug
+        self.where("location LIKE ?", "%#{search}%")
+    end 
     
 end
